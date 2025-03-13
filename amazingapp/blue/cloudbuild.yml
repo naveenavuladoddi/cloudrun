@@ -18,4 +18,4 @@ steps:
 images:
   - 'gcr.io/$PROJECT_ID/amazingapp:$COMMIT_SHA'
 
-logsBucket: 'gs://cherry-naveen/'
+logsBucket: 'gs:// cherry-1/'
