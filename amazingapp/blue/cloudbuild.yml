@@ -12,18 +12,20 @@ teps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['auth', 'configure-docker', 'us-docker.pkg.dev']
 
-  # Step 3: Build Docker image using blue/ as the context
+  #steps:
+  # Build Docker image using 'blue/' as the context
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build',
-      '-t', 'us-docker.pkg.dev/$PROJECT_ID/amazingapp-repo/amazingapp:$COMMIT_SHA',
+      '-t', 'us-docker.pkg.dev/$PROJECT_ID/amazingapp:$COMMIT_SHA', './amazingapp/blue',
       '-f', 'amazingapp/blue/Dockerfile',
       'amazingapp/blue'
     ]
 
+
  # Step 4: Push Docker image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-docker.pkg.dev/$PROJECT_ID/amazingapp-repo/amazingapp:$COMMIT_SHA']
+    args: ['push', 'us-docker.pkg.dev/$PROJECT_ID/amazingapp/blue/cloudbuild.yml:$COMMIT_SHA']
 
   # Step 5: Deploy to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
