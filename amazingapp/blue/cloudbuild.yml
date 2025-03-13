@@ -57,4 +57,4 @@ images:
   - 'gcr.io/$PROJECT_ID/amazingapp:$COMMIT_SHA'
   - 'gcr.io/$PROJECT_ID/amazingapp:latest'
 
-logsBucket: "gs://cherry-1"
+logsBucket: "gs://cherry-naveen"
